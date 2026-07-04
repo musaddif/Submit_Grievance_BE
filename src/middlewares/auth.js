@@ -58,7 +58,7 @@ const authorize = (...roles) => {
       });
     }
     
-    next(); // ✅ IMPORTANT: Must call next()
+    next(); 
   };
 };
 
