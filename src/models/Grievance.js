@@ -110,10 +110,10 @@ const grievanceSchema = new mongoose.Schema({
   // 📊 STATUS TRACKING
   // ============================================
   status: {
-    type: String,
-    enum: ['Pending', 'Under Review', 'Resolved', 'Rejected'],
-    default: 'Pending'
-  },
+  type: String,
+  enum: ['Todo', 'Pending', 'Processing', 'Resolved'],
+  default: 'Todo'
+},
 
   submittedAt: {
     type: Date,

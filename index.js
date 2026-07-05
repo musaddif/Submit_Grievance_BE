@@ -15,6 +15,8 @@ const PORT = process.env.PORT || 3000;
 const authRoutes = require('./src/routes/authRoutes');
 const uploadRoutes = require('./src/routes/uploadRoutes');
 const grievanceRoutes = require('./src/routes/grievanceRoutes'); // ← ADD THIS
+const adminRoutes = require('./src/routes/adminroutes');
+
 
 // Middleware
 app.use(helmet());
@@ -27,6 +29,7 @@ app.use(morgan('dev'));
 app.use('/api/auth', authRoutes);
 app.use('/api', uploadRoutes);
 app.use('/api', grievanceRoutes); // ← ADD THIS LINE - FIXES THE ERROR!
+app.use('/api/admin', adminRoutes);
 
 // Root route
 app.get('/', (req, res) => {
@@ -80,5 +83,8 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
   console.log(`📁 Upload endpoint: http://localhost:${PORT}/api/upload`);
   console.log(`📋 Grievance endpoint: http://localhost:${PORT}/api/grievance`);
-  console.log(`🔐 Auth endpoint: http://localhost:${PORT}/api/`);
+  console.log(`🔐 Admin all grievances: http://localhost:${PORT}/api/admin/grievances`);
+  console.log(`👤 User's grievances: http://localhost:${PORT}/api/my-grievances`);
+    console.log(`👤 User's single grievances: http://localhost:${PORT}/api/grievance/:id`);
+
 });
